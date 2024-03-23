@@ -25,6 +25,7 @@ def transmit():
     print("cword=" + currentWord)
     f2 = open("next.txt", "w")#set random next word, can be manually overwritten by server admin
     f2.write(random.choice(WORDS))
+    f2.close()
     wordList = encode(currentWord)#encode current word as a group of words
     print(wordList)
     for w in wordList:
