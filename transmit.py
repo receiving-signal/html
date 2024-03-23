@@ -13,7 +13,7 @@ def encode(word):
     for c in word:
         j = ord(c)
         index = round(i*j/3) #-each letter encoded into word by hashWord
-        print(i + "*" + j + "/3=" + index)
+        print(str(i) + "*" + str(j) + "/3=" + str(index))
         encodedWord = WORDS[index]
         encodedList.append(encodedWord)
     return (encodedList) #-return hashWord followed by each encoded letter (list of strings)
