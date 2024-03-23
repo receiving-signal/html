@@ -8,11 +8,11 @@ setInterval(update, 5000);
 function update() {
   const xhttp = new XMLHttpRequest();
   xhttp.onload = function() {
-    document.getElementById("demo").innerHTML = this.responseText;
+    ourText = this.responseText;
+    document.getElementById("demo").innerHTML = ourText;
+    utterThis.text = ourText;
+    synth.speak(utterThis)
     }
   xhttp.open("GET", "crypt.txt", true); //import from py
   xhttp.send();
-
-  utterThis.text = this.responseText;
-  synth.speak(utterThis)
 }
