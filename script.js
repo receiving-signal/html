@@ -9,6 +9,7 @@ for (const voice of synth.getVoices()) {
   }
 }
 
+document.getElementById('static').play();
 setInterval(update, 5000);
 
 function update() {
