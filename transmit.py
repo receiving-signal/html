@@ -22,7 +22,7 @@ def transmit():
     f2.write(random.choice(WORDS))
     wordList = encode(currentWord)#encode current word as a group of words
     for w in wordList:
-        time.sleep(3)
+        time.sleep(6)
         f3 = open("crypt.txt", "w") #write to txt, for js import
         f3.write(w)
         f3.close()
