@@ -8,8 +8,10 @@ for (const voice of synth.getVoices()) {
     utterThis.voice = voice;
   }
 }
+audioStatic = new Audio('static.wav');
+audioStatic.loop = true;
 
-playSound("static");
+audioStatic.play();
 setInterval(update, 5000);
 
 function update() {
