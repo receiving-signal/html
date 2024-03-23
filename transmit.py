@@ -8,12 +8,12 @@ def encode(word):
     i = 0
     for c in hashWord: #convert hashWord to number
         i += ord(c)
-    print("hash " + hashWord)
+    #print("hash " + hashWord) #log
     encodedList = [".", hashWord]
     for c in word:
         j = ord(c)
         index = round(i*j/3) #-each letter encoded into word by hashWord
-        print(str(i) + "*" + str(j) + "/3=" + str(index))
+        #print(str(i) + "*" + str(j) + "/3=" + str(index)) #log
         encodedWord = WORDS[index]
         encodedList.append(encodedWord)
     return (encodedList) #-return hashWord followed by each encoded letter (list of strings)
@@ -22,12 +22,12 @@ def transmit():
     f1 = open("next.txt", "r")#get current word
     currentWord = f1.readline()
     f1.close()
-    print("cword=" + currentWord)
+    #print("cword=" + currentWord) #log
     f2 = open("next.txt", "w")#set random next word, can be manually overwritten by server admin
     f2.write(random.choice(WORDS))
     f2.close()
     wordList = encode(currentWord)#encode current word as a group of words
-    print(wordList)
+    #print(wordList) #log
     for w in wordList:
         time.sleep(6)
         f3 = open("crypt.txt", "w") #write to txt, for js import
