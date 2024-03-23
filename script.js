@@ -8,10 +8,14 @@ for (const voice of synth.getVoices()) {
     utterThis.voice = voice;
   }
 }
-audioStatic = new Audio('static.wav');
-audioStatic.loop = true;
+var sound = new Howl({
+  src: ['static.wav'],
+  autoplay: true,
+  loop: true,
+  volume: 0.5,
+});
 
-audioStatic.play();
+sound.play();
 setInterval(update, 5000);
 
 function update() {
