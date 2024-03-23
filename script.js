@@ -2,6 +2,12 @@
 const synth = window.speechSynthesis
 let ourText = ""
 const utterThis = new SpeechSynthesisUtterance(ourText)
+utterThis.pitch = 0;
+for (const voice of synth.getVoices()) {
+  if (voice.name === "Microsoft James - English (Australia) (en-AU)") {
+    utterThis.voice = voice;
+  }
+}
 
 setInterval(update, 5000);
 
