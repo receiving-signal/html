@@ -1,7 +1,7 @@
-'speechSynthesis' in window ? console.log("Web Speech API supported!") : console.log("Web Speech API not supported :-(")
-const synth = window.speechSynthesis
-let ourText = ""
-const utterThis = new SpeechSynthesisUtterance(ourText)
+'speechSynthesis' in window ? console.log("Web Speech API supported!") : console.log("Web Speech API not supported :-(");
+const synth = window.speechSynthesis;
+let ourText = "";
+const utterThis = new SpeechSynthesisUtterance(ourText);
 utterThis.pitch = 0;
 for (const voice of synth.getVoices()) {
   if (voice.name === "Microsoft James - English (Australia) (en-AU)") {
@@ -9,7 +9,7 @@ for (const voice of synth.getVoices()) {
   }
 }
 
-document.getElementById('static').play();
+playSound("static");
 setInterval(update, 5000);
 
 function update() {
@@ -18,7 +18,7 @@ function update() {
     ourText = this.responseText;
     document.getElementById("demo").innerHTML = ourText;
     if (ourText == ".") {
-      beep();
+      playSound("tone");
     } else {
       utterThis.text = ourText;
       synth.speak(utterThis);
@@ -28,6 +28,6 @@ function update() {
   xhttp.send();
 }
 
-function beep() {
-  document.getElementById('tone').play();
-}
+function playSound(name) {
+  document.getElementById(name).play();
+} 
