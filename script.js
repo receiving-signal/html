@@ -9,11 +9,13 @@ for (const voice of synth.getVoices()) {
   }
 }
 
-playSound("static");
-setInterval(update, 5000);
+function startJS() { //on button click begin
+  playSound("static"); //background static
+  setInterval(update, 5000); //fetch txt + read it every 5 seconds
+}
 
 function update() {
-  const xhttp = new XMLHttpRequest();
+  const xhttp = new XMLHttpRequest(); //import from py
   xhttp.onload = function() {
     ourText = this.responseText;
     document.getElementById("demo").innerHTML = ourText;
@@ -24,7 +26,7 @@ function update() {
       synth.speak(utterThis);
     }
   }
-  xhttp.open("GET", "crypt.txt", true); //import from py
+  xhttp.open("GET", "crypt.txt", true);
   xhttp.send();
 }
 
