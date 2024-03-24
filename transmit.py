@@ -33,7 +33,7 @@ def transmit():
         f3 = open("crypt.txt", "w") #write to txt, for js import
         f3.write(w)
         f3.close()
-        print("sent " + w)
+        #print("sent " + w) #log
     transmit()
 
 WORDS = open("list.txt").read().splitlines()
