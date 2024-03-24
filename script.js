@@ -11,11 +11,12 @@ for (const voice of synth.getVoices()) {
 
 function startJS() { //on button click begin
   playSound("static"); //background static
-  update();//start immediately
   setInterval(update, 5000); //fetch txt + read it every 5 seconds
 }
 
 function update() {
+  document.getElementById("static").pause();
+  playSound("beep");
   const xhttp = new XMLHttpRequest(); //import from py
   xhttp.onload = function() {
     ourText = this.responseText;
@@ -29,6 +30,7 @@ function update() {
   }
   xhttp.open("GET", "crypt.txt", true);
   xhttp.send();
+  playSound("static");
 }
 
 function playSound(name) {
