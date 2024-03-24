@@ -11,12 +11,13 @@ for (const voice of synth.getVoices()) {
 
 function startJS() { //on button click begin
   playSound("static"); //background static
-  setInterval(update, 5000); //fetch txt + read it every 5 seconds
+  setInterval(update, 3000); //fetch txt + read it every 5 seconds
 }
 
-function update() {
+async function update() {
   document.getElementById("static").pause();
   playSound("beep");
+  await new Promise(r => setTimeout(r, 2000));
   const xhttp = new XMLHttpRequest(); //import from py
   xhttp.onload = function() {
     ourText = this.responseText;
