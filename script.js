@@ -11,6 +11,7 @@ for (const voice of synth.getVoices()) {
 
 function startJS() { //on button click begin
   playSound("static"); //background static
+  update();//start immediately
   setInterval(update, 5000); //fetch txt + read it every 5 seconds
 }
 
